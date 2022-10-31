@@ -2,6 +2,8 @@ from statistics import mean
 from sampling import *
 import numpy as np
 import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
 
 M = 10 #number of estimations
 N = 1000 #number of generated particles in each estimation
@@ -70,4 +72,11 @@ print("Generator 2: Mean %.4f with estimator variance %.4f and variance %.4f wit
 print("Generator 3: Mean %.4f with estimator variance %.4f and variance %.4f with estimator variance %.4f" %(mean_mean3, mean_var3, var_mean3, var_var3))
 print("Generator 4: Mean %.4f with estimator variance %.4f and variance %.4f with estimator variance %.4f" %(mean_mean4, mean_var4, var_mean4, var_var4))
 
-sns.kdeplot(xp1,weights=np.array(w1))
+df1 = pd.DataFrame(np.array([xp1,xp2,xp3,xp4,w1,w2,w3,w4]).T,columns=["x1","x2","x3","x4","w1","w2","w3","w4"])
+long_df1 = pd.melt(df1)
+print(long_df1.head())
+sns.kdeplot(data=df1,x="x1",weights="w1")
+sns.kdeplot(data=df1,x="x2",weights="w2")
+sns.kdeplot(data=df1,x="x3",weights="w3")
+sns.kdeplot(data=df1,x="x4",weights="w4")
+plt.show()
