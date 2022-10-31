@@ -2,6 +2,8 @@ from measurement_update import measurement_update
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+#this should be replaced by the actual z-particles computed in the part before
 xp = np.linspace(0,100,200)
 wp = np.ones(len(xp))*(1/len(xp))
 y = 60
