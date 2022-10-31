@@ -6,7 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 M = 10 #number of estimations
-N = 1000 #number of generated particles in each estimation
+N = 10000 #number of generated particles in each estimation
 
 means1 = np.zeros(M)
 means2 = np.zeros(M)
