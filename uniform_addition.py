@@ -48,7 +48,7 @@ def generate_new_particles(particles, weights):
     # Resample so that the weights are uniform
     particles, weights = low_variance_resampler(particles, weights)
 
-    particles += random_generator.uniform(-10, 10, particles.size)
+    particles = np.square(particles) + random_generator.uniform(-10, 10, particles.size)
 
     return particles, weights
 

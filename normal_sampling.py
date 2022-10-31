@@ -31,9 +31,9 @@ def generate_new_particles(particles, weights):
     new_weights = np.empty_like(weights)
 
     for index in range(len(particles)):
-        new_particles[index] = random_generator.normal(particles[index], 10)
-        new_weights[index] = weights[index] / np.exp((-1/2) * (new_particles[index] - particles[index])**2/100)
-        new_weights[index] *= 1/20 if new_particles[index] - particles[index] >= -10 and new_particles[index] - particles[index] <= 10 else 0
+        new_particles[index] = random_generator.normal(particles[index]**2, 10)
+        new_weights[index] = weights[index] / np.exp((-1/2) * (new_particles[index] - particles[index]**2)**2/100)
+        new_weights[index] *= 1/20 if new_particles[index] - particles[index]**2 >= -10 and new_particles[index] - particles[index]**2 <= 10 else 0
     
     new_weights /= new_weights.sum()
 
