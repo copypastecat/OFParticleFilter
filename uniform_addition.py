@@ -1,6 +1,7 @@
 from numpy.random import default_rng
 import numpy as np
 from sampling import generateparticles1, generateparticles2, generateparticles3, generateparticles4
+from measurement_update import measurement_update
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -133,3 +134,13 @@ sns.kdeplot(data=df1,x="x4",weights="w4")
 plt.legend(["method 1","method 2", "method 3", "method 4"])
 plt.xlim([-10,19])
 plt.show()
+
+#last part
+wp_y = measurement_update(xp2,w2,60)
+mean_estimate = np.sum(xp2*wp_y)
+
+wp_y2 = measurement_update(xp2,w2,-20)
+wp_y2[xp1 > 50] = 0
+p50 = np.sum(wp_y2)
+print("E[Z|Y=60] = %.4f" %mean_estimate)
+print("P[Z<50|Y=-20] = %.4f" %p50)
