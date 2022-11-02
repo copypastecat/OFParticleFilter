@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import norm
 
 M = 10 #number of estimations
-N = 10000 #number of generated particles in each estimation
+N = 100000 #number of generated particles in each estimation
 
 means1 = np.zeros(M)
 means2 = np.zeros(M)
@@ -119,7 +119,7 @@ sns.kdeplot(data=df1,x="x2",weights="w2")
 sns.kdeplot(data=df1,x="x3",weights="w3")
 sns.kdeplot(data=df1,x="x4",weights="w4")
 plt.legend(["method 1","method 2", "method 3", "method 4"])
-plt.xlim([-10,19])
+plt.xlim([-10,91])
 plt.show()
 
 #last part

@@ -132,7 +132,7 @@ sns.kdeplot(data=df1,x="x2",weights="w2")
 sns.kdeplot(data=df1,x="x3",weights="w3")
 sns.kdeplot(data=df1,x="x4",weights="w4")
 plt.legend(["method 1","method 2", "method 3", "method 4"])
-plt.xlim([-10,19])
+plt.xlim([-10,91])
 plt.show()
 
 #last part
